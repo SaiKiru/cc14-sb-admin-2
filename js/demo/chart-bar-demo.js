@@ -11,7 +11,7 @@ function number_format(number, decimals, dec_point, thousands_sep) {
     sep = (typeof thousands_sep === 'undefined') ? ',' : thousands_sep,
     dec = (typeof dec_point === 'undefined') ? '.' : dec_point,
     s = '',
-    toFixedFix = function(n, prec) {
+    toFixedFix = function (n, prec) {
       var k = Math.pow(10, prec);
       return '' + Math.round(n * k) / k;
     };
@@ -32,13 +32,34 @@ var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: [
+      "Burkina Faso",
+      "Morocco",
+      "Peru",
+      "Australia",
+      "Brazil",
+      "Philippines",
+      "Mexico",
+      "Nigeria",
+      "Ghana",
+      "USA"
+    ],
     datasets: [{
-      label: "Revenue",
-      backgroundColor: "#4e73df",
-      hoverBackgroundColor: "#2e59d9",
-      borderColor: "#4e73df",
-      data: [4215, 5312, 6251, 7841, 9821, 14984],
+      label: "Spendings",
+      backgroundColor: "#36acb8",
+      hoverBackgroundColor: "#55cfcf",
+      data: [
+        50000,
+        7386,
+        64691,
+        23850,
+        22086,
+        52090,
+        35052,
+        7744,
+        13522,
+        10834
+      ],
     }],
   },
   options: {
@@ -54,26 +75,26 @@ var myBarChart = new Chart(ctx, {
     scales: {
       xAxes: [{
         time: {
-          unit: 'month'
+          unit: 'countries'
         },
         gridLines: {
           display: false,
           drawBorder: false
         },
         ticks: {
-          maxTicksLimit: 6
+          maxTicksLimit: 10
         },
-        maxBarThickness: 25,
+        maxBarThickness: 40,
       }],
       yAxes: [{
         ticks: {
           min: 0,
-          max: 15000,
+          max: 60000,
           maxTicksLimit: 5,
           padding: 10,
           // Include a dollar sign in the ticks
-          callback: function(value, index, values) {
-            return '$' + number_format(value);
+          callback: function (value, index, values) {
+            return '€' + number_format(value);
           }
         },
         gridLines: {
@@ -101,9 +122,9 @@ var myBarChart = new Chart(ctx, {
       displayColors: false,
       caretPadding: 10,
       callbacks: {
-        label: function(tooltipItem, chart) {
+        label: function (tooltipItem, chart) {
           var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-          return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+          return datasetLabel + ': €' + number_format(tooltipItem.yLabel);
         }
       }
     },
