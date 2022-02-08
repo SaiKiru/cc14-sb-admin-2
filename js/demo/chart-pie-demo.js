@@ -7,11 +7,35 @@ var ctx = document.getElementById("myPieChart");
 var myPieChart = new Chart(ctx, {
   type: 'doughnut',
   data: {
-    labels: ["Direct", "Referral", "Social"],
+    labels: [
+      "Trees",
+      "Investments",
+      "Taxes",
+      "Advertisements",
+      "Operations"
+    ],
     datasets: [{
-      data: [55, 30, 15],
-      backgroundColor: ['#4e73df', '#1cc88a', '#36b9cc'],
-      hoverBackgroundColor: ['#2e59d9', '#17a673', '#2c9faf'],
+      data: [
+        35,
+        29,
+        24,
+        9,
+        3
+      ],
+      backgroundColor: [
+        '#00c194',
+        '#d3da31',
+        '#406d83',
+        '#14a7ab',
+        '#84e6e5'
+      ],
+      hoverBackgroundColor: [
+        '#45dfbb',
+        '#e5e972',
+        '#628ba1',
+        '#43d3d8',
+        '#c4faf9'
+      ],
       hoverBorderColor: "rgba(234, 236, 244, 1)",
     }],
   },
@@ -19,7 +43,7 @@ var myPieChart = new Chart(ctx, {
     maintainAspectRatio: false,
     tooltips: {
       backgroundColor: "rgb(255,255,255)",
-      bodyFontColor: "#858796",
+      bodyFontColor: "#4a4a4a",
       borderColor: '#dddfeb',
       borderWidth: 1,
       xPadding: 15,
@@ -30,6 +54,6 @@ var myPieChart = new Chart(ctx, {
     legend: {
       display: false
     },
-    cutoutPercentage: 80,
+    cutoutPercentage: 60,
   },
 });

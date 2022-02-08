@@ -7705,6 +7705,7 @@ button.bg-dark:focus {
 .mr-2,
 .mx-2 {
   margin-right: 0.5rem !important;
+  white-space: nowrap;
 }
 
 .mb-2,
